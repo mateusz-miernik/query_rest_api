@@ -1,11 +1,11 @@
 """
     Commandline script for simple REST API query.
 """
+
 import os
 import json
-from argparse import ArgumentParser
-
 import requests
+from argparse import ArgumentParser
 
 
 def main():
@@ -18,18 +18,21 @@ def main():
     mac_address = args.mac
     api_key = args.api_key
 
-    if api_key == "":
-        print("No definition of API key was provided. Exiting...")
-        exit(1)
-    elif mac_address == "":
+    # Check if all required arguments were provided
+    if api_key == "":   # Firstly check if commandline argument with API key was provided
+        api_key = os.getenv('MACADDRESS_API_KEY')
+        if api_key is None:     # Secondly check if local environment variable for API key is available
+            print("No definition of API key was provided. Exiting...")
+            exit(1)
+    elif mac_address == "":     # Check if commandline argument with mac address was provided
         print("No definition of mac address was provided. Exiting...")
         exit(1)
 
     print(f"You provided this mac address to make a query: {mac_address}")
 
-    api_key = os.getenv('MACADDRESS_API_KEY')
     r = requests.get(f"https://api.macaddress.io/v1?apiKey={api_key}&output=json&search={mac_address}")
 
+    # Check if query returned status code = 200, if not show current status code
     if r.status_code != 200:
         try:
             r.raise_for_status()
