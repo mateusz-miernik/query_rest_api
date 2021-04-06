@@ -28,7 +28,7 @@ def main():
 
     # Check if all required arguments were provided
     if api_key == "":   # Firstly check if commandline argument with API key was provided
-        api_key = os.getenv('MACADDRESS_API_KEY')
+        api_key = os.getenv('API_KEY')
         if api_key is None:     # Secondly check if local environment variable for API key is available
             print("No definition of API key was provided. Exiting...")
             exit(1)
