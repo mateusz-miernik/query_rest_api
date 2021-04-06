@@ -33,7 +33,7 @@ python query_rest_api.py -api-key example_api_key -mac example_mac_address
 ```
 
 Script takes two keyword argument:
-* `-mac for MAC address of some vendors`
+* `-mac` for MAC address of some vendors
 * `-api-key` for valid API key
 
 Please be advised that API key can be also provided from environmental variable.
