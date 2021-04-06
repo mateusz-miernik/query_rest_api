@@ -32,10 +32,4 @@ Example run scenario looks like this:
 python query_rest_api.py -mac example_mac_address
 ```
 
-First arguments specify paths to files containing (preferably) absolute paths to original `.mudp`/`.dvl` files. Each
-file can be a simple text file, a `.csv` file or an `.xlsx` file, where at least one column contains the paths. Second
-argument points to a directory where reprocessed files are located (resim output directory). `LD` is a function
-abbreviation, so that function's specific signals can be validated. Optional `-o` argument specifies custom path to
-`.csv` file with results. **NOTE:** this alters paths for `.xlsx` and `.txt` files too. Another optional argument, `-n`,
-specifies column name that contains `.mudp`/`.dvl` paths. It defaults to `Input` and is ignored when input file is a
-plain text file.
+Script takes only one keyword argument "-mac"
