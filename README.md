@@ -39,7 +39,7 @@ Script takes two keyword argument:
 Please be advised that API key can be also provided from environmental variable.
 You can type in bash (linux):
 ```commandline
-export MACADDRESS_API_KEY=qwertyuiop
+export MACADDRESS_API_KEY=example_api_key
 ```
 and then run a command without providing `-api-key` keyword argument as below:
 ```commandline
@@ -50,5 +50,5 @@ OR
 
 Run one comandline execution of script with providing API key from environmental variable (environmental variable will be available only once):
 ```commandline
-MACADDRESS_API_KEY=qwertyuiop python query_rest_api.py -mac example_mac_address
+MACADDRESS_API_KEY=example_api_key python query_rest_api.py -mac example_mac_address
 ```
