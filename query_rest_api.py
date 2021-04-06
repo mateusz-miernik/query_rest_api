@@ -32,7 +32,7 @@ def main():
         if api_key is None:     # Secondly check if local environment variable for API key is available
             print("No definition of API key was provided. Exiting...")
             exit(1)
-    elif mac_address == "":     # Check if commandline argument with mac address was provided
+    if mac_address == "":     # Check if commandline argument with mac address was provided
         print("No definition of mac address was provided. Exiting...")
         exit(1)
 
