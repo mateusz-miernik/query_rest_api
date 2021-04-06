@@ -33,10 +33,10 @@ python query_rest_api.py -api-key example_api_key -mac example_mac_address
 ```
 
 Script takes two keyword argument:
-* `-mac` for MAC address of some vendors
-* `-api-key` for valid API key
+* `--mac` for MAC address of some vendors
+* `--api-key` for valid API key
 
-Please be advised that API key can be also provided from environmental variable.
+Please be advised that API key can be also provided from environmental variable. Firstly script check if API key was provided as keyword argument to parse, if not then it check if environmental variable `MACADDRESS_API_KEY` was provided.
 You can type in bash (linux):
 ```commandline
 export MACADDRESS_API_KEY=example_api_key
