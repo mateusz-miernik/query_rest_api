@@ -17,7 +17,7 @@ from argparse import ArgumentParser
 
 
 def main():
-    parser = ArgumentParser(description="Takes one keyword argument of mac address.")
+    parser = ArgumentParser(description="Takes keyword arguments for mac address and API key.")
     parser.add_argument("--api-key", '-ak', type=str, action="store", default="", metavar="API_KEY",
                         help="Define your valid API key.")
     parser.add_argument("--mac", '-m', type=str, action="store", default="", metavar="MAC",
