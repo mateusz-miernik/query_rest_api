@@ -1,5 +1,13 @@
 """
-    Commandline script for simple REST API query.
+    Title:  Commandline script for simple REST API query.
+
+    Input: two keyword arguments: mac address and API key.
+    Output: Company name of vendor with provided mac address
+
+    Releases:
+    Date        Version         Author
+    April 2021  1.0.0           Mateusz Miernik
+
 """
 
 import os
