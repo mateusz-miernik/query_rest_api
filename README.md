@@ -29,26 +29,27 @@ pip install -r requirements.txt
 Example run scenario looks like this:
 
 ```commandline
-python query_rest_api.py -api-key example_api_key -mac example_mac_address
+python query_rest_api.py --api-key example_api_key --mac example_mac_address
 ```
 
 Script takes two keyword argument:
 * `--mac` for MAC address of some vendors
 * `--api-key` for valid API key
 
-Please be advised that API key can be also provided from environmental variable. Firstly script check if API key was provided as keyword argument to parse, if not then it check if environmental variable `MACADDRESS_API_KEY` was provided.
+Please be advised that API key can be also provided from `environmental variable`. 
+Firstly script check if API key was provided as keyword argument to parse, if not then it check if environmental variable `API_KEY` was provided.
 You can type in bash (linux):
 ```commandline
-export MACADDRESS_API_KEY=example_api_key
+export API_KEY=example_api_key
 ```
-and then run a command without providing `-api-key` keyword argument as below:
+and then run a command without providing `--api-key` keyword argument as below:
 ```commandline
-python query_rest_api.py -mac example_mac_address
+python query_rest_api.py --mac example_mac_address
 ```
 
 OR
 
 Run one comandline execution of script with providing API key from environmental variable (environmental variable will be available only once):
 ```commandline
-MACADDRESS_API_KEY=example_api_key python query_rest_api.py -mac example_mac_address
+API_KEY=example_api_key python query_rest_api.py --mac example_mac_address
 ```
