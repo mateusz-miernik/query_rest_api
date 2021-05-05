@@ -1,12 +1,10 @@
 # Description
 
-A script that can query a rest API, parse, and return the output.
-Script can take two parameters from commandline - API key and MAC address.
-It makes query request to https://macaddress.io/ website.
+A script that can query a rest API. Script can take two parameters from commandline - API key and MAC address. It makes request to https://macaddress.io/ website.
 
 # Requirements
 
-* `python 3.8.6`
+* `python 3.8`
 
 # Before you start
 
@@ -49,7 +47,7 @@ python query_rest_api.py --mac example_mac_address
 
 OR
 
-Run one comandline execution of script with providing API key from environmental variable (environmental variable will be available only once):
+Run one comandline execution of script with providing API key from environmental variable (environmental variable will be available only for one execution):
 ```commandline
 API_KEY=example_api_key python query_rest_api.py --mac example_mac_address
 ```

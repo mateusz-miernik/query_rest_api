@@ -5,39 +5,28 @@
     Output: Company name of vendor with provided mac address
 
     Releases:
-    Date        Version         Author
-    April 2021  1.0.0           Mateusz Miernik
+    Date            Version         Author              Comment
+    April 2021      1.0.0           Mateusz Miernik     Initial release
+    May   2021      1.1.0           Mateusz Miernik     Code refactoring
 
 """
 
 import os
 import json
 import requests
-from argparse import ArgumentParser
+from argparse import ArgumentParser, Namespace
 
 
-def main():
-    parser = ArgumentParser(description="Takes keyword arguments for mac address and API key.")
-    parser.add_argument("--api-key", '-ak', type=str, action="store", default="", metavar="API_KEY",
-                        help="Define your valid API key.")
-    parser.add_argument("--mac", '-m', type=str, action="store", default="", metavar="MAC",
-                        help="Define mac address for query action.")
+def _parse_args() -> Namespace:
+    parser = ArgumentParser(description="Script make a simple query to REST API.")
+    parser.add_argument("mac", '-m', help="Define mac address for query action.")
+    parser.add_argument("--api_key", '-a', help="Define your valid API key.")
     args = parser.parse_args()
-    mac_address = args.mac
-    api_key = args.api_key
+    return args
 
-    # Check if all required arguments were provided
-    if api_key == "":   # Firstly check if commandline argument with API key was provided
-        api_key = os.getenv('API_KEY')
-        if api_key is None:     # Secondly check if local environment variable for API key is available
-            print("No definition of API key was provided. Exiting...")
-            exit(1)
-    if mac_address == "":     # Check if commandline argument with mac address was provided
-        print("No definition of mac address was provided. Exiting...")
-        exit(1)
 
+def _process_request(api_key: str, mac_address: str) -> None:
     print(f"You provided this mac address to make a query: {mac_address}")
-
     r = requests.get(f"https://api.macaddress.io/v1?apiKey={api_key}&output=json&search={mac_address}")
 
     # Check if query returned status code = 200, if not show current status code
@@ -52,6 +41,20 @@ def main():
     response_dict = json.loads(r.text)
     company_name = response_dict['vendorDetails']['companyName']
     print(f"Company name for provided mac address is: {company_name}")
+
+
+def main() -> None:
+    args = _parse_args()
+    mac_address = args.mac
+    api_key = args.api_key
+
+    if api_key is None:   # Firstly check if commandline argument with API key was provided
+        api_key = os.getenv('API_KEY')
+        if api_key is None:     # Secondly check if local environment variable for API key is available
+            print("No definition of API key was provided. Exiting...")
+            exit(1)
+
+    _process_request(api_key, mac_address)
 
 
 if __name__ == "__main__":
