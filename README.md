@@ -12,7 +12,7 @@ Make sure to read this entire documentation first before trying to execute any c
 understanding of how this utility works, instead of blindly copying and pasting commands into the terminal.
 
 If things like `virtualenv` or `pip` are not clear for you, make sure to read about them or ask your coworkers. Its your
-responsibility to troubleshoot any problems directly related to basic stuff (like abovementioned `virtualenv` or `pip`).
+responsibility to troubleshoot any problems directly related to basic stuff (like above mentioned `virtualenv` or `pip`).
 
 # Installation
 
