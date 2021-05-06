@@ -19,7 +19,7 @@ from argparse import ArgumentParser, Namespace
 
 def _parse_args() -> Namespace:
     parser = ArgumentParser(description="Script make a simple query to REST API.")
-    parser.add_argument("mac", '-m', help="Define mac address for query action.")
+    parser.add_argument("mac", help="Define mac address for query action.")
     parser.add_argument("--api_key", '-a', help="Define your valid API key.")
     args = parser.parse_args()
     return args
