@@ -1,7 +1,7 @@
 """
     Title:  Commandline script for simple REST API query.
 
-    Input: two keyword arguments: mac address and API key.
+    Input: two arguments: mac address and API key.
     Output: Company name of vendor with provided mac address
 
     Releases:
